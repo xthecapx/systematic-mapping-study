@@ -1,0 +1,302 @@
+A systematic mapping review is a secondary study method that researchers use to categorize the state of the art in a given research topic, emphasizing the quantity of studies over their quality \cite{Petersen2008}. This approach is particularly beneficial when the objective is to generate a comprehensive overview of research categories rather than to report the absence of particular evidence \cite{Salama2017}.
+
+In this context, the study seeks to explore software quality concerns in the hybrid approach. To achieve this, the mapping review methodology is selected as it aligns with the goal of providing a broad overview without engaging in detailed analysis nor identifying best practices based on empirical evidence \cite{Petersen2008}. This choice allows for the systematic categorization of existing research and identification of prevalent themes and trends.
+
+Figure \ref{mapping_process} illustrates the mapping strategy used to conduct the study. The process can be summarized as follows: (i) define the research questions, set a scope, and define a data strategy; (ii) search for relevant studies; (iii) run a first screening by applying the exclusion criteria; (iv) run a second screening by using the inclusion/exclusion criteria, answer the research questions; (v) extract data; (vi) and finally, create a mapping. Steps (i) to (v) are detailed in the remainder of this section, while step (vi) is commented on section \ref{sec:results}.
+
+The research team, consisting of a senior researcher, a doctoral student, a master’s student, and an undergraduate student (who is not a co-author), collaboratively executed the mapping process. During the initial screening, team members reviewed article titles and abstracts to exclude those that met the exclusion criteria. In the subsequent screening, each member analyzed and extracted data from a portion of the remaining articles to determine their inclusion in the mapping. Any discrepancies were resolved through consensus meetings moderated by the senior researcher, ensuring a unified approach to the study.
+
+\begin{figure}[htbp]
+  \begin{center}
+    \begin{subfigure}[b]{0.48\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{images/1.pdf}
+      \caption{Mapping process.}
+      \label{mapping_process}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{photo/algorithm.png}
+      \caption{Data mining algorithm.}
+      \label{algorithm}
+    \end{subfigure}
+  \end{center}
+\end{figure}
+
+\subsection{Research questions, Scope, Data strategy}
+
+This study aims to organize and understand the state of quality attributes in hybrid systems from two perspectives. The first perspective examines how to evaluate quality when integrating quantum components into existing classical computing systems. The second perspective focuses on identifying specific attributes and metrics that can be used to assess the operation of these advanced systems. These perspectives lead to the following research questions:
+
+\begin{itemize}
+    \item \textbf{RQ1: What are the challenges of integrating quantum computing systems with an existing classical computing infrastructure? }
+    \item \textbf{RQ2: What attributes and/or metrics of classical software quality are relevant to the quantum realm, and which are unique in the context of quantum computing?}
+    \item \textbf{RQ3: In how many studies are the RQ1 and RQ2 explicitly addressed?}
+    \item \textbf{RQ4: What are the types of research and contributions of the selected studies?}
+    \item \textbf{RQ5: What is the publication year, the type of publication, and the research group that contributed to answering RQ1 and RQ2?}
+\end{itemize}
+
+Table \ref{table_database_attributes} outlines the metadata collected from each reviewed article.%, focusing on key elements such as keywords, publication details, and quality attributes.
+
+\begin{center}
+\begin{longtblr}[
+  caption = {Database attributes},
+  label = {table_database_attributes}
+]{
+  rows={valign=m},
+  colspec={@{}X[1,c]X[5,l]X[5,l]@{}},
+}
+    \hline
+    Column & Description \\
+    \hline
+    \hline
+    Keywords & The keywords reported by the article and the citation database. \\
+    Title & The title of the article. \\
+    Type & Article, Conference paper, Book chapter \cite{Salama2017} \\
+    Year & The year of publication  \\
+    Publisher & The name of the conference or magazine where the article was published . \\
+    URL & The URL of the conference or magazine. \\
+    Attributes & Quality attributes discussed in the study. \\
+    Metrics & Quality metrics discussed in the study. \\
+    Challenges & Challenges report of the application of quality metrics while integrating classical and quantum systems. \\
+    \\
+    \hline
+    \hline
+\end{longtblr}
+\end{center}
+
+The focus is set on primary studies that address quality attributes and metrics within the quantum domain. Secondary studies are utilized as references for the report but are not included in the mapping process.
+
+% For this study, we utilized Web of Science\footnote{\url{http://www.webofknowledge.com/}} and Scopus\footnote{\url{https://scopus.com/}} as meta-search databases, providing access to a wide range of scientific literature, including prominent databases such as IEEE, Nature, and Springer. These sources are essential for comprehensive computer science research.
+
+For this study, we utilized \textit{Web of Science} and \textit{Scopus} as meta-search databases, providing access to a wide range of scientific literature, including prominent databases such as IEEE, Nature, and Springer. These sources are essential for comprehensive computer science research.
+
+% Table \ref{table_scientific_databases} summarizes the data sources selected for this study. Web of Science and Scopus are used as meta-search databases, providing access to a wide range of scientific literature, including prominent databases such as IEEE, Nature, and Springer. These sources are essential for comprehensive computer science research.
+
+% % remove!
+% \begin{center}
+% \begin{longtblr}[
+%   caption = {Scientific databases},
+%   label = {table_scientific_databases}
+% ]{
+%   rows={valign=m},
+%   colspec={@{}X[1,l]X[2,l]@{}},
+% }
+%     \hline
+%     Database & Location \\
+%     \hline
+%     \hline
+%     Web of Science & \url{http://www.webofknowledge.com/} \\
+%     Scopus & \url{https://scopus.com/} \\
+%     \hline
+%     \hline
+% \end{longtblr}
+% \end{center}
+
+\subsection{Search string}
+
+The query system of \textit{Web of Science} and \textit{Scopus} syntax is different, so two queries were required to run the search. Nonetheless, both queries keep the same essence which is to find studies related to hybrid systems that mention challenges or barriers in their titles, as well as quantum quality metrics. %For computer science focused results, an additional filter was applied to Scopus aiming to find results in the Computer Science subarea. 
+Given restrictions in terms of page number we provide the raw query for Scopus:
+
+{\small
+\begin{lstlisting}[
+    language=SQL,
+    basicstyle=\ttfamily\footnotesize,
+    numbers=none,
+    columns=fullflexible,
+    frame=single,
+    breaklines=true,
+    basewidth=0.5em,
+]
+(ALL("hybrid quantum classical") AND TITLE(challenges OR barriers)) OR (TITLE(quantum AND (software OR quality OR develop* OR system) AND quality) AND ABS(metrics OR quality OR "quality requirements")) AND LIMIT-TO(SUBJAREA,"COMP")
+\end{lstlisting}
+}
+
+%The corresponding raw query for Web of Science is:
+
+%\begin{lstlisting}[
+%    language=Bash,
+%    showspaces=false,
+%    basicstyle=\ttfamily,
+%    numbers=left,
+%    numberstyle=\tiny,
+%    commentstyle=\color{gray},
+%    columns=fullflexible,
+%    frame=single,
+%    breaklines=true,
+%]
+%( ALL=("hybrid quantum classical") AND TI=(challenges OR barriers) ) OR 
+%( TI=( quantum AND ( software OR quality OR (develop*) OR system ) AND quality ) AND 
+%AB=( metrics OR quality OR ("quality requirements" ) ) )
+%\end{lstlisting}
+
+% The query system of \textit{Web of Science} and \textit{Scopus} syntax is different, so two queries were required to run the search. However, each of them specifies the same logic as can be seen in Tables \ref{table_scopus} and \ref{table_query_woc}.
+
+% The first part of the query aims to find studies related to hybrid systems that mention challenges or barriers in their titles, while the second part aims to find quantum quality metrics. Finally, the last filter focuses on computer science.
+
+% \begin{center}
+% \begin{longtblr}[
+%   caption = {Scopus},
+%   label = {table_scopus}
+% ]{
+%   rows={valign=m},
+%   colspec={@{}X[1,c]X[10,l]@{}},
+% }
+%     \hline
+%     Field & Query \\
+%     \hline
+%     \hline
+%     Q1 & ALL ( "hybrid quantum classical" ) \\
+%     Q2 & TITLE ( challenges OR barriers ) \\
+%     Q3 & TITLE ( quantum AND ( software OR quality OR ( develop* ) OR system ) AND ( quality ) ) \\
+%     Q4 & ABS ( metrics OR quality OR ( "quality requirements" ) ) \\
+%     Q5 & LIMIT-TO ( SUBJAREA , "COMP" ) \\
+%     \hline
+%     \hline
+% \end{longtblr}
+% \end{center}
+
+% The query logic is structured as follows:
+
+% \begin{itemize}
+%     \item (Q1 AND Q2) OR (Q3 AND Q4) AND Q5
+% \end{itemize}
+
+% The corresponding raw query for Scopus is:
+
+% \begin{lstlisting}[
+%     language=Bash,
+%     showspaces=false,
+%     basicstyle=\ttfamily,
+%     numbers=left,
+%     numberstyle=\tiny,
+%     commentstyle=\color{gray},
+%     columns=fullflexible,
+%     frame=single,
+%     breaklines=true,
+% ]
+% ( ALL ( "hybrid quantum classical" ) AND TITLE ( challenges OR barriers ) ) OR 
+% ( TITLE ( quantum AND ( software OR quality OR ( develop* ) OR system ) AND ( quality ) ) AND 
+% ABS ( metrics OR quality OR ( "quality requirements" ) ) ) AND 
+% ( LIMIT-TO ( SUBJAREA , "COMP" ) )
+% \end{lstlisting}
+
+% \begin{center}
+% \begin{longtblr}[
+%   caption = {Web of Science},
+%   label = {table_query_woc}
+% ]{
+%   rows={valign=m},
+%   colspec={@{}X[1,c]X[10,l]@{}},
+% }
+%     \hline
+%     Field & Query \\
+%     \hline
+%     \hline
+%     Q1 & ALL=("hybrid quantum classical") \\
+%     Q2 & TI=(challenges OR barriers) \\
+%     Q3 & TI=( quantum AND ( software OR quality OR (develop*) OR system ) AND quality ) \\
+%     Q4 & AB=( metrics OR quality OR ("quality requirements" ) ) \\
+%     \hline
+%     \hline
+% \end{longtblr}
+% \end{center}
+
+% The query logic is structured as follows:
+% \begin{itemize}
+%     \item (Q1 AND Q2) OR (Q3 AND Q4)
+% \end{itemize}
+
+% The corresponding raw query for Web of Science is:
+
+% \begin{lstlisting}[
+%     language=Bash,
+%     showspaces=false,
+%     basicstyle=\ttfamily,
+%     numbers=left,
+%     numberstyle=\tiny,
+%     commentstyle=\color{gray},
+%     columns=fullflexible,
+%     frame=single,
+%     breaklines=true,
+% ]
+% ( ALL=("hybrid quantum classical") AND TI=(challenges OR barriers) ) OR 
+% ( TI=( quantum AND ( software OR quality OR (develop*) OR system ) AND quality ) AND 
+% AB=( metrics OR quality OR ("quality requirements" ) ) )
+% \end{lstlisting}
+
+\subsection{First screening}
+
+In the initial screening phase, each team member reviewed the titles, keywords, and abstracts of articles using \textit{Abstrackr} \cite{Cerezo2022}. The following \textbf{exclusion criteria} were applied to filter out irrelevant studies:
+\begin{itemize}
+  \item Duplicate studies.
+  \item Full-text papers that were not accessible.
+  \item Papers not written in English.
+  \item Papers that did not explicitly address quantum software issues or focused solely on quantum hardware.
+  \item Papers that did not describe quality attributes or metrics in systems using quantum technologies.
+\end{itemize}
+
+Each document was categorized as relevant, irrelevant, or uncertain. In cases of discrepancies or unclear categorizations, the senior researcher and doctoral student met to discuss and reach a consensus on the final classification of the article. A total of 559 papers were identified; out of which, 484 articles matched the search criteria from \textit{Web of Science}, while \textit{Scopus} yielded 75 results.
+
+%\begin{center}
+%\begin{longtblr}[
+%  caption = {Database results},
+%  label = {table_database_results}
+%]{
+%  rows={valign=m},
+%  colspec={@{}X[2,l]X[1,l]@{}},
+%}
+%    \hline
+%    Source & Results \\
+%    \hline
+%    \hline
+%    Web of Science\textsuperscript{1} & 445 \\
+%    Scopus\textsuperscript{2} & 75 \\
+%    \hline
+%\tiny 1. \url{https://github.com/xthecapx/mapping/blob/main/rq/445_wos.csv} \\
+%\tiny 2. \url{https://github.com/xthecapx/mapping/blob/main/rq/75_scopus_full.csv}
+%\end{longtblr}
+%\end{center}
+
+\subsection{Second screening}
+
+In the second screening phase, team members conducted a thorough review of all relevant articles, applying both inclusion and exclusion criteria to address the research questions. The exclusion criteria were detailed in the previous section, while the \textbf{inclusion criteria} are outlined below. This phase also served as a verification step, particularly beneficial for new team members who joined the project. The goal of the second screening was to refine the selection of articles to facilitate the mapping process and gather the necessary data.
+
+%\textbf{Inclusion criteria}
+\begin{itemize}
+  \item Studies that explore the challenges of integrating quantum computing with classical computing infrastructures.
+  \item Papers that list metrics for specifying or evaluating the quality requirements of quantum computing systems in real-world applications.
+  \item Papers that examine the integration of quantum computing systems into software solutions.
+  \item Empirical studies, theoretical analyses, case studies, and conceptual frameworks.
+\end{itemize}
+
+% verify number
+Following the second screening, 13 papers were selected for detailed analysis and mapping. Additionally, 3 more papers were included through a snowballing technique.
+
+\subsection{Extracting data} 
+\label{summary_of_findings}
+
+Following the data collection from the filtered articles, the most pertinent statistics are summarized as follows:
+
+\begin{itemize}
+  \item Nine articles are conference papers, while four are published in indexed journals, including one open access article.
+  \item Three articles report experiments testing quality metrics on real quantum computers.
+  \item IEEE and Springer emerge as the primary sources for quantum computing quality attributes and metrics.
+  \item Five articles propose metrics specifically for quantum systems.
+  \item Six articles address the challenges of integrating quantum systems within classical software infrastructures.
+  \item Five articles explore quality attributes applied to quantum platforms.
+\end{itemize}
+
+Beyond this quantitative analysis, data mining techniques were employed to uncover relationships among the words in the articles. The code used to determine word frequency and construct various versions of the word cloud is available in \cite{xthecapxMapping}, and the algorithm is depicted in Figure \ref{algorithm}. The process begins by converting the text from PDFs into strings. A cleaning procedure follows, which involves converting text to lowercase, removing punctuation, special characters, digits, trailing spaces, English stop words, and irrelevant words, and finally generating tokens through lemmatization. The next phase involves counting word occurrences and applying a filter to exclude words appearing in fewer than n articles. Ultimately, a word cloud is generated (see Figure \ref{one_word}), highlighting words with at least ten occurrences in three articles.
+
+In the final step, a word cloud is produced (Figure \ref{one_word}). The five most frequently occurring words in the articles, represented prominently, are \emph{quantum}, \emph{software}, \emph{computing}, \emph{quality}, and \emph{service}. The prominence of these terms is expected, given their central role in the research focus. Notably, the word \emph{service} suggests its importance as a solution for accessing quantum technology from a software architecture perspective, as discussed in \cite{Alonso_Murillo_2023, Moguel2022, Vietz2021_QuantumSoftwareEngineeringChallenges}.
+
+\begin{figure}
+  \begin{center}
+  \includegraphics[width=3.3in]{photo/one_word_2025.png}\\
+  \caption[Word Cloud of Key Terms]{it illustrates the most frequently occurring terms in the analyzed articles. Key concepts such as \emph{quantum}, \emph{software}, \emph{computing}, \emph{quality}, and \emph{service} are highlighted, reflecting the primary focus areas of the research. The filter 
+  looked for words appearing at least 10 times in 3 of the considered articles.}
+  \label{one_word}
+  \end{center}
+\end{figure}
+

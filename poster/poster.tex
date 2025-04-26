@@ -1,0 +1,33 @@
+\section{Introduction}
+
+Hybrid computing systems present several challenges, including heterogeneity of quantum hardware due to multiple quantum phenomena \cite{Elsharkawy2023, Sodhi2021}, multiple ways to represent data in Qubits \cite{Moguel2022}, lack of software standardization \cite{Elsharkawy2023, Cerezo2022, Sodhi2021}, limited monitoring tools \cite{Moguel2022, 40}, error-prone algorithm development \cite{Sodhi2021}, shortage of quantum experts \cite{Sodhi2021}, and limited visibility between quantum and classical computing boundaries \cite{Vietz2021}. While current literature focuses on specific topics such as quantum verification \cite{22}, compilation \cite{Campbell2018}, simulation \cite{25}, and development \cite{26}, these studies typically adopt a theoretical perspective without addressing practical strategies for software quality attributes. These challenges and advancements motivate our systematic mapping study to examine progress in software quality for hybrid quantum-classical systems.
+
+\section{Systematic mapping review process}
+
+We conducted a systematic mapping review using \textit{Web of Science} and \textit{Scopus} databases. The search focused on studies addressing quality attributes and metrics in hybrid quantum-classical systems. A total of 559 papers were identified; out of which, 484 articles matched the search criteria from \textit{Web of Science}, while \textit{Scopus} yielded 75 results. Following a two-phase screening process, we selected 16 articles for detailed analysis. Our analysis revealed that while 87\% of studies focus on quality metrics and attributes, only 43\% address integration challenges, highlighting a significant research gap in hybrid systems.
+
+The study primarily addresses two main research questions: (1) \textit{What are the challenges of integrating quantum computing systems with an existing classical computing infrastructure?} and (2) \textit{What attributes and/or metrics of classical software quality are relevant to the quantum realm, and which are unique in the context of quantum computing?}. Additional analyses are available in our supplementary material at \url{https://zenodo.org/records/15072607}.
+
+\section{Mapping Results}
+
+\subsection{Integration Challenges}
+
+Hybrid quantum/classical systems present challenges in four main areas. First, scalability and performance issues arise from supporting diverse quantum technologies \cite{Elsharkawy2023}, managing high latency, and addressing lack of standardization \cite{Cerezo2022}. Second, data and encoding challenges include difficulty in defining boundaries between quantum and classical systems \cite{Vietz2021}, and scarcity of standardized datasets \cite{Cerezo2022}. Third, algorithmic development faces the need for unique algorithms per problem, limited component reuse \cite{Moguel2022}, and lack of standardization \cite{40}. Finally, developer expertise requirements encompass both quantum and traditional computing knowledge, including software integration and cloud computing \cite{Vietz2021, Sodhi2021}.
+
+\subsection{Quality Attributes and Metrics}
+
+Our review identified that hybrid systems currently use classical software quality attributes \cite{Silva2023} found in the literature. The only software-related metrics reported include quantum volume (now known as layer fidelity), and total quantum factor \cite{Verduro2021}. While other metrics such as T1 (Energy relaxation) and T2 (Dephasing) are relevant for quantum systems \cite{youssefMeasuringSimulatingT12020}.%, they are hardware-related and not improvable at the software level, therefore falling outside the scope of our research questions.
+
+\section{Conclusions}
+
+The systematic mapping review reveals that quantum computing technologies remain in their early developmental stages, evidenced by the limited literature addressing quality assurance in quantum computing. Current studies focus on establishing theoretical quality attributes derived from classical software standards, with minimal exploration of quantum or hybrid specific metrics. Moreover, documented quality attributes require validation in operational environments to assess their practical utility.
+
+The analysis of hybrid systems shows that cloud services represent the most viable solution for accessing quantum hardware, given the challenges of maintaining stable qubits and meeting specialized requirements. However, this approach inherits traditional cloud computing challenges while confronting quantum-specific issues such as system availability and exponential error propagation.
+
+Finally, we found that the field requires quantum-specific standards and empirical validation of quality metrics. The development of observability tools and testing frameworks for hybrid quantum-classical systems represents a clear research opportunity. Future work should focus on establishing robust quality assurance practices that can be validated in operational environments.
+
+\section{References}
+
+Due to space limitations, all references cited in this paper can be consulted in our supplementary material available at \url{https://zenodo.org/records/15072607}.
+
+\newpage

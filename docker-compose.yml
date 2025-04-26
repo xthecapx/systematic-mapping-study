@@ -1,0 +1,12 @@
+services:
+  systematic-mapping-study:
+    image: jupyter/datascience-notebook
+    restart: always
+    build:
+      context: .
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/home/jovyan/work
+    environment:
+      - JUPYTER_ENABLE_LAB=yes

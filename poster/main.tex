@@ -1,0 +1,89 @@
+\documentclass[12pt]{article}
+\usepackage{sbc-template}
+\usepackage{cite}
+\usepackage{amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{textcomp}
+% \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+    
+% \usepackage{xcolor,soul,framed}
+% \colorlet{shadecolor}{yellow}
+\usepackage[pdftex]{graphicx}
+\usepackage{adjustbox}
+\graphicspath{{../pdf/}{../jpeg/}}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+
+\usepackage[cmex10]{amsmath}
+\usepackage{array}
+\usepackage{mdwmath}
+\usepackage{mdwtab}
+\usepackage{eqparbox}
+\usepackage{url}
+\usepackage{tabularx}
+\usepackage{tabularray}
+
+\usepackage{listings}
+% \usepackage{hyperref}
+\usepackage{subfiles} 
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{physics}
+
+\sloppy
+
+\title{Quality concerns when integrating quantum and classical computing: a systematic mapping study}
+
+\author{Anonymus\inst{1}}
+
+\address{Anonymus}
+
+\author{Cristian Marquez\inst{1}, Johana Ojeda\inst{1} and Kelly Garcés \inst{1} }
+
+\address{Department of Systems and Computing Engineering -- Universidad de los Andes \\
+  Bogotá -- Colombia \\
+  (e-mail: {c.marquezb, j.ojedaa, kj.garces971}@uniandes.edu.co)
+}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This article presents a systematic mapping review to categorize software quality research for hybrid computing systems; meaning the combination of classical software and quantum technologies to solve a problem. This work attempts to categorize primary studies with respect to quality attributes and metrics in hybrid systems reported in state of the art literature. Moreover, it identifies potential research areas and surveys the challenges of the practical integration of quantum software into classical infrastructures.
+\end{abstract}
+
+% \begin{keywords}
+% Quantum programming, systematic mapping study, Qubits, Platforms and Tools for Quatum Computing, hybrid architectures.
+% \end{keywords}
+
+\section{Introduction}
+\subfile{sections/introduction}
+
+\section{Background}
+\label{sec:background}
+\subfile{sections/background}
+
+% \section{Systematic mapping review process}
+% \label{sec:process}
+% \subfile{sections/systematic_mapping_review}
+
+% \section{Mapping Results}
+% \label{sec:results}
+% \subfile{sections/analysis_and_mapping}
+
+% \section{Challenges and research directions}
+% \label{sec:challenges}
+% \subfile{sections/challenges_and_research_directions}
+
+% \section{Conclusions}
+% \label{sec:conclusions}
+% \subfile{sections/conclusions}
+
+\bibliographystyle{sbc}
+\bibliography{Bibliography}
+
+\end{document}
+
+
